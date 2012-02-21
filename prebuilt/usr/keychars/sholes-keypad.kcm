@@ -220,7 +220,7 @@ key SPACE {
     label:                              ' '
     base:                               ' '
     shift, capslock:                    ' '
-    alt, shift+alt:                     '\u01ef'
+    alt, shift+alt:                     '\uef01'
 }
 
 key TAB {
