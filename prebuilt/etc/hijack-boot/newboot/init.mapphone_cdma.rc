@@ -304,8 +304,10 @@ on property:sys.chargeonly.mode=1
     start battd
     start console
     write /data/simpin lock
+    stop /system/bin/bootanimation
     exec /system/bin/charge_only_mode
     exec /system/bin/stop zygote
+    stop /system/bin/surfaceflinger
 
 # Moto safe power down
 on property:sys.reboot=1
