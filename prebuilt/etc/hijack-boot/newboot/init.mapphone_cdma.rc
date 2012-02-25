@@ -294,20 +294,24 @@ on boot
 # Load Authentec VPN kernel module
     insmod /system/lib/modules/vpnclient.ko
 
+# Load our multitouch module
+    insmod /system/lib/modules/D2G.ko touch_num=8
+
 # Set core max size (2G)
     setrlimit 4 2147483648 2147483648
 
 # The properties introduced by moto
+
 # Charge only mode services
-    exec /system/bin/mot_boot_mode
+   exec /system/bin/mot_boot_mode
 on property:sys.chargeonly.mode=1
     start battd
     start console
     write /data/simpin lock
-    stop /system/bin/bootanimation
     exec /system/bin/charge_only_mode
+    stop /system/bin/bootanimation
+    pkill /system/bin/surfaceflinger
     exec /system/bin/stop zygote
-    stop /system/bin/surfaceflinger
 
 # Moto safe power down
 on property:sys.reboot=1
