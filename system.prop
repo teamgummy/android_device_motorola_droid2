@@ -57,7 +57,7 @@ ro.HorizontalVVM=true
 ro.url.legal=http://www.google.com/intl/%s/mobile/android/basic/phone-legal.html
 ro.url.legal.android_privacy=http://www.google.com/intl/%s/mobile/android/basic/privacy.html
 
-ro.media.capture.flip=horizontalandvertical
+#ro.media.capture.flip=horizontalandvertical
 ro.mot.hw.calibratedImager=1
 ro.config.play.bootsound=0
 ro.media.sensor.orient=90
