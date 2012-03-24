@@ -31,7 +31,11 @@ PRODUCT_COPY_FILES := $(DEVICE_PREBUILT)/etc/apns-conf.xml:system/etc/apns-conf.
 PRODUCT_PACKAGES := \
 	Camera
 
-# Audio & Bluetooth
+# Audio
+PRODUCT_COPY_FILES += \
+  device/motorola/droid2/audio/libaudio.so:/system/lib/libaudio.so \
+  device/motorola/droid2/audio/liba2dp.so:/system/lib/liba2dp.so
+
 PRODUCT_PACKAGES += \
   audio.primary.omap3 \
   libaudiohw_legacy \
@@ -73,7 +77,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 $(call inherit-product, device/common/gps/gps_us_supl.mk)
 
-# Inherit from shadow device
+# Inherit from droid2 device
 $(call inherit-product, device/motorola/droid2/device.mk)
 
 PRODUCT_NAME := full_droid2
