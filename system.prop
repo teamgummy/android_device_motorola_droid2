@@ -81,3 +81,7 @@ ro.media.panorama.defres=2592x1456
 ro.media.panorama.frameres=848x480
 
 ro.product.use_charge_counter=1
+
+
+debug.enabletr=true
+ro.max.fling_velocity=4000
