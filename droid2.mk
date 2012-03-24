@@ -33,8 +33,8 @@ PRODUCT_PACKAGES := \
 
 # Audio + Bluetooth
 PRODUCT_COPY_FILES += \
-	device/motorola/shadow/audio/libaudio.so:/system/lib/libaudio.so \
-	device/motorola/shadow/audio/liba2dp.so:/system/lib/liba2dp.so
+	device/motorola/droid2/audio/libaudio.so:/system/lib/libaudio.so \
+	device/motorola/droid2/audio/liba2dp.so:/system/lib/liba2dp.so
 
 PRODUCT_PACKAGES += \
 	audio.primary.omap3 \
