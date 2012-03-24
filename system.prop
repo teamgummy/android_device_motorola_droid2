@@ -30,7 +30,7 @@ wifi.supplicant_scan_interval = 90
 
 dalvik.vm.heapsize=64m
 ro.sf.lcd_density=240
-windowsmgr.max_events_per_sec=55
+windowsmgr.max_events_per_sec=150
 ro.min_pointer_dur=10
 ro.opengles.version = 131072
 
@@ -57,7 +57,6 @@ ro.HorizontalVVM=true
 ro.url.legal=http://www.google.com/intl/%s/mobile/android/basic/phone-legal.html
 ro.url.legal.android_privacy=http://www.google.com/intl/%s/mobile/android/basic/privacy.html
 
-ro.media.capture.flip=horizontalandvertical
 ro.mot.hw.calibratedImager=1
 ro.config.play.bootsound=0
 ro.media.sensor.orient=90
@@ -82,3 +81,6 @@ ro.media.panorama.defres=2592x1456
 ro.media.panorama.frameres=848x480
 
 ro.product.use_charge_counter=1
+
+debug.enabletr=true
+ro.max.fling_velocity=4000

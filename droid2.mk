@@ -24,18 +24,14 @@
 # Device overlay and prebuilt directories
 DEVICE_PREBUILT := device/motorola/droid2/prebuilt
 
-# Get the long list of APNs
-PRODUCT_COPY_FILES := device/sample/etc/apns-full-conf.xml:system/etc/apns-conf.xml
+# APNs
+PRODUCT_COPY_FILES := $(DEVICE_PREBUILT)/etc/apns-conf.xml:system/etc/apns-conf.xml
 
 # Camera
 PRODUCT_PACKAGES := \
 	Camera
 
-# Audio
-PRODUCT_COPY_FILES += \
-  device/motorola/droid2/audio/libaudio.so:/system/lib/libaudio.so \
-  device/motorola/droid2/audio/liba2dp.so:/system/lib/liba2dp.so
-
+# Audio & Bluetooth
 PRODUCT_PACKAGES += \
   audio.primary.omap3 \
   libaudiohw_legacy \
