@@ -24,9 +24,6 @@
 # Device overlay and prebuilt directories
 DEVICE_PREBUILT := device/motorola/droid2/prebuilt
 
-# Get the long list of APNs
-PRODUCT_COPY_FILES := device/sample/etc/apns-full-conf.xml:system/etc/apns-conf.xml
-
 # Camera
 PRODUCT_PACKAGES := \
 	Camera
@@ -77,10 +74,10 @@ PRODUCT_PROPERTY_OVERRIDES += \
 $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 $(call inherit-product, device/common/gps/gps_us_supl.mk)
 
-# Inherit from shadow device
-$(call inherit-product, device/motorola/shadow/device.mk)
+# Inherit from droid2 device
+$(call inherit-product, device/motorola/droid2/device.mk)
 
-PRODUCT_NAME := cm_droid2
+PRODUCT_NAME := full_droid2
 PRODUCT_DEVICE := droid2
 PRODUCT_BRAND := verizon
-PRODUCT_MODEL := DROID2 Global
+PRODUCT_MODEL := DROID2
