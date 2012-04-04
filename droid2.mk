@@ -24,12 +24,9 @@
 # Device overlay and prebuilt directories
 DEVICE_PREBUILT := device/motorola/droid2/prebuilt
 
-<<<<<<< HEAD
-=======
 # APNs
 PRODUCT_COPY_FILES := $(DEVICE_PREBUILT)/etc/apns-conf.xml:system/etc/apns-conf.xml
 
->>>>>>> 918613adcc7f9bd507035668aa7b0c082eaa5c4f
 # Camera
 PRODUCT_PACKAGES := \
 	Camera
