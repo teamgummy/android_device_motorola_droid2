@@ -42,9 +42,9 @@ on post-fs
     # Power Management
     write /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor ondemand
     write /sys/devices/system/cpu/cpu0/cpufreq/scaling_min_freq 300000
-#    write /sys/devices/system/cpu/cpu0/cpufreq/ondemand/up_threshold 86
-#    write /sys/devices/system/cpu/cpu0/cpufreq/ondemand/sampling_rate 46875
-#    write /sys/power/sr_vdd1_autocomp 1
+    write /sys/devices/system/cpu/cpu0/cpufreq/ondemand/up_threshold 86
+    write /sys/devices/system/cpu/cpu0/cpufreq/ondemand/sampling_rate 46875
+    write /sys/power/sr_vdd1_autocomp 1
     write /sys/power/sr_vdd2_autocomp 1
 # Change ownership for vibrators
     chown system system /sys/class/timed_output/vibrator/enable
@@ -71,9 +71,9 @@ on post-fs
     chown bluetooth bluetooth /sys/class/rfkill/rfkill0/type
     chown bluetooth bluetooth /sys/class/rfkill/rfkill0/state
     chmod 0660 /sys/class/rfkill/rfkill0/state
-#    chown bluetooth.bluetooth /sys/class/rfkill/rfkill1/type
-#    chown bluetooth.bluetooth /sys/class/rfkill/rfkill1/state
-#    chmod 0660 /sys/class/rfkill/rfkill1/state
+    chown bluetooth bluetooth /sys/class/rfkill/rfkill1/type
+    chown bluetooth bluetooth /sys/class/rfkill/rfkill1/state
+    chmod 0660 /sys/class/rfkill/rfkill1/state
 
 # Dont delete this line, used as event in bootmenu (cpu settings & postbootmenu)
     exec /system/bin/logwrapper postbootmenu
@@ -339,6 +339,7 @@ service reboot_key /system/bin/reboot
 service usbd /system/bin/usbd
     class main
     user root
+    socket usbd stream 666 root system
 
 service start_commdrv /system/bin/sh /system/etc/motorola/comm_drv/commdrv_fs.sh
     class main
@@ -356,6 +357,11 @@ service battd /system/bin/battd
     socket battdsock stream 660 root system
     user root
     group system
+    oneshot
+
+service ssmgrd /system/bin/ssmgrd
+    class main
+    group radio input system
     oneshot
 
 # Bluetooth services.
@@ -394,12 +400,12 @@ on property:tcmd.unload_wlan=2
 
 # Ecompass daemon
 service akmd2 /system/bin/akmd2
-    class main
+    class late_start
     user compass
     group compass misc input
 
 # Wifi services
-service wlan_loader /system/bin/wlan_loader -f /system/etc/wifi/fw_wlan1271.bin -i /system/etc/wifi/tiwlan.ini -e /pds/wifi/nvs_map.bin
+service wlan_loader /system/bin/logwrapper /system/bin/wlan_loader -f /system/etc/wifi/fw_wlan1271.bin -i /system/etc/wifi/tiwlan.ini -e /pds/wifi/nvs_map.bin
     class main
     disabled
     oneshot
@@ -431,7 +437,7 @@ service baseimage /system/bin/dspexec -v -T /system/lib/dsp/baseimage.dof
     oneshot
 
 service fmradio /system/bin/fmradioserver
-    class main
+    class late_start
     disabled
     user system
     group bluetooth net_bt_admin net_raw net_admin misc
