@@ -41,7 +41,7 @@ on post-fs
     write /proc/sys/fs/suid_dumpable 2
     # Power Management
     write /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor ondemand
-    write /sys/devices/system/cpu/cpu0/cpufreq/scaling_min_freq 250000
+    write /sys/devices/system/cpu/cpu0/cpufreq/scaling_min_freq 300000
     write /sys/devices/system/cpu/cpu0/cpufreq/ondemand/up_threshold 86
     write /sys/devices/system/cpu/cpu0/cpufreq/ondemand/sampling_rate 46875
     write /sys/power/sr_vdd1_autocomp 1
@@ -261,11 +261,17 @@ on boot
     insmod /system/lib/modules/netmux.ko
     insmod /system/lib/modules/netmux_linkdriver.ko
     insmod /system/lib/modules/modem_pm_driver.ko
+    insmod /system/lib/modules/xt_tcpmss.ko
+    insmod /system/lib/modules/xt_TCPMSS.ko
+    insmod /system/lib/modules/iptable_mangle.ko
     insmod /system/lib/modules/xt_multiport.ko
     insmod /system/lib/modules/xt_quota2.ko
     insmod /system/lib/modules/xt_owner2.ko
     insmod /system/lib/modules/ip6_tables.ko
     insmod /system/lib/modules/ip6table_filter.ko
+    insmod /system/lib/modules/ip6table_mangle.ko
+    insmod /system/lib/modules/ip6t_REJECT.ko
+    insmod /system/lib/modules/ip6t_LOG.ko
     insmod /system/lib/modules/sio-iosched.ko
 
 # Set core max size (2G)

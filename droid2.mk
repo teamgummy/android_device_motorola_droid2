@@ -30,6 +30,7 @@ PRODUCT_COPY_FILES += \
 	device/motorola/droid2/audio/liba2dp.so:/system/lib/liba2dp.so
 
 PRODUCT_PACKAGES += \
+	sensors.droid2 \
 	audio.primary.omap3 \
 	libaudiohw_legacy \
 	audio.a2dp.default \
