@@ -263,12 +263,14 @@ on boot
     insmod /system/lib/modules/modem_pm_driver.ko
     insmod /system/lib/modules/xt_tcpmss.ko
     insmod /system/lib/modules/xt_TCPMSS.ko
+    insmod /system/lib/modules/iptable_raw.ko
     insmod /system/lib/modules/iptable_mangle.ko
     insmod /system/lib/modules/xt_multiport.ko
     insmod /system/lib/modules/xt_quota2.ko
     insmod /system/lib/modules/xt_owner2.ko
     insmod /system/lib/modules/ip6_tables.ko
     insmod /system/lib/modules/ip6table_filter.ko
+    insmod /system/lib/modules/ip6table_raw.ko
     insmod /system/lib/modules/ip6table_mangle.ko
     insmod /system/lib/modules/ip6t_REJECT.ko
     insmod /system/lib/modules/ip6t_LOG.ko
@@ -409,7 +411,7 @@ service wlan_ap_loader /system/bin/logwrapper /system/bin/tiap_loader -f /system
     disabled
     oneshot
 
-service hostapd /system/bin/logwrapper /system/bin/hostapd -d /data/misc/wifi/hostapd.conf
+service hostapd /system/bin/hostapd -d /data/misc/wifi/hostapd.conf
     class main
     disabled
     oneshot
