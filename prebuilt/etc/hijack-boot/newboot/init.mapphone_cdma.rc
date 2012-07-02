@@ -42,8 +42,8 @@ on post-fs
     # Power Management
     write /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor ondemand
     write /sys/devices/system/cpu/cpu0/cpufreq/scaling_min_freq 300000
-    write /sys/devices/system/cpu/cpu0/cpufreq/ondemand/up_threshold 86
-    write /sys/devices/system/cpu/cpu0/cpufreq/ondemand/sampling_rate 46875
+    write /sys/devices/system/cpu/cpu0/cpufreq/ondemand/up_threshold 95
+    write /sys/devices/system/cpu/cpu0/cpufreq/ondemand/sampling_rate 37500
     write /sys/power/sr_vdd1_autocomp 1
     write /sys/power/sr_vdd2_autocomp 1
 # Change ownership for vibrators
@@ -90,9 +90,6 @@ on post-fs
     mkdir /pds/bp_nvm
     chown radio radio /pds/bp_nvm
     chmod 0770 /pds/bp_nvm
-
-    # Tweaks
-    write /sys/block/mmcblk0/bdi/read_ahead_kb 2048
 
 #    mount rootfs rootfs / ro remount
 
