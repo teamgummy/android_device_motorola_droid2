@@ -85,3 +85,4 @@ ro.media.capture.shuttertone=1
 ro.media.capture.noSensorLSC=1
 ro.media.panorama.defres=2592x1456
 ro.media.panorama.frameres=848x480
+ro.sf.lcd_density=240
